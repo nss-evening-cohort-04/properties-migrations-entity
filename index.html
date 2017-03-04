@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Models Attributes and Code</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="mermaid.css"> 
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Roboto';}
+      h1, h2, h3 {
+        font-family: 'Open Sans';
+        font-weight: bold;
+      }
+      .larger {
+        font-size: 30px;
+      }
+      .red {
+        color: red;
+      }
+      #map {
+        height: 500px;
+      }
+      .sized p img {
+        width: 800px;
+        margin-left: -50px;
+      }
+      p span.sized img {
+        width: 800px;
+        margin-left: -50px;
+      }
+      .sized-700 p img {
+        width: 700px;
+      }
+      .logo p img {
+        position: absolute;
+        bottom: 10px;
+        right: 50px;
+      }
+      .remark-slide {
+        border-top: 4px solid #3648ac;
+      }
+      .inverse {
+        background: #272822;
+        color: #dddddd;
+        text-shadow: 0 0 20px #333;
+      }
+      .code {
+        color: blue;
+      }
+      .math-speak {
+        color: #3648ac;
+      }
+      .pull-right {
+        float: right;
+        width: 48%;
+      }
+      .pull-left {
+        float: left;
+        width: 48%;
+      }
+      table {
+        border-collapse: collapse;
+        width: 60%;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      td {
+        padding: 5px;
+      }
+      td, th {
+        border: 1px solid #999;
+      }
+      th {
+        font-size: 1.75em;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .mermaid { width: 780px; }
+      .mermaid svg {
+        display: block;
+        margin: auto;
+        max-width: 780px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source"></textarea>
+
+    <script src="remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/mermaid/7.0.0/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/mermaid/7.0.0/mermaidAPI.min.js"></script>
+    <script type="text/javascript">
+
+
+    var slideshow = remark.create({
+      highlightStyle: 'vs',
+      highlightLines: true,
+        sourceUrl: "index.md",
+        countIncrementalSlides: false,
+        count: false,                                                           
+        slideNumberFormat: '',
+    });
+    mermaid.initialize({
+      startOnLoad: false,
+      cloneCssStyles: false,
+    });
+    function initMermaid(s) {
+      var diagrams = document.querySelectorAll('.mermaid');
+      var i;
+      for(i=0;i<diagrams.length;i++){
+        if(diagrams[i].offsetWidth>0){
+          mermaid.init(undefined, diagrams[i]);
+        }
+      }
+    }
+    slideshow.on('afterShowSlide', initMermaid);
+    initMermaid(slideshow.getSlides()[slideshow.getCurrentSlideIndex()]);
+
+    </script>
+  </body>
+</html>
